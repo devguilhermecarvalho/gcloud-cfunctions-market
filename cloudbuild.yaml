@@ -1,16 +1,19 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'functions'
       - 'deploy'
-      - 'function-2' # Function name
+      - 'function-2'
       - '--region'
       - 'us-east1'
       - '--runtime'
-      - 'python39' # ou outra linguagem suportada
+      - 'python39'
       - '--trigger-http'
       - '--entry-point'
-      - 'hello_http'
+      - 'hello_http' 
       - '--source'
       - '.'
 
