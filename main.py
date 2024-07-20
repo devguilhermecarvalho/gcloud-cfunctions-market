@@ -39,10 +39,10 @@ def hello_http(request):
         # Fazer o upload do arquivo CSV para o bucket
         if blob.exists():
             blob.upload_from_filename(csv_filename)
-            response_text = f"File '{destination_blob_name}' already existed and has benn overwritten in bucket '{bucket_name}'."
+            response_text = f"Cloud Build Ok - File '{destination_blob_name}' already existed and has benn overwritten in bucket '{bucket_name}'."
         else:
             blob.upload_from_filename(csv_filename)
-            response_text = f"File '{destination_blob_name}' created in bucket '{bucket_name}'."
+            response_text = f"Cloud Build Ok -File '{destination_blob_name}' created in bucket '{bucket_name}'."
         
         # Retornar a URL do arquivo no bucket
         response = make_response(response_text)

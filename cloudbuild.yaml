@@ -1,0 +1,32 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'functions'
+      - 'deploy'
+      - 'function-2' # Function name
+      - '--region'
+      - 'us-east1'
+      - '--runtime'
+      - 'python39' # ou outra linguagem suportada
+      - '--trigger-http'
+      - '--entry-point'
+      - 'hello_http'
+      - '--source'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'functions'
+      - 'describe'
+      - 'function-2'
+      - '--region'
+      - 'us-east1'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'functions'
+      - 'list'
+      - '--region'
+      - 'us-east1'
+      - '--format'
+      - 'json'
